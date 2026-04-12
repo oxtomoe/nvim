@@ -1,19 +1,19 @@
 return {
-  "stevearc/conform.nvim",
-  event = { "BufWritePre" },
-  cmd = { "ConformInfo" },
-  
-  opts = {
-    formatters_by_ft = {
-      lua = { "stylua" },
-      python = { "isort", "black" },
-      javascript = { "prettier" },
-      nix = { "nixpkgs-fmt" },
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+
+    opts = {
+        formatters_by_ft = {
+            lua = { "stylua" },
+            python = { "ruff_fix", "ruff_format" },
+            javascript = { "prettier" },
+            nix = { "nixpkgs-fmt" },
+        },
+
+        format_on_save = {
+            timeout_ms = 1000,
+            lsp_fallback = true,
+        },
     },
-    
-    format_on_save = {
-      timeout_ms = 500,
-      lsp_fallback = true,
-    },
-  },
 }
