@@ -8,24 +8,31 @@ harpoon:setup({
 })
 
 require("which-key").add({
-    { "<leader>f", group = "Files/Find" },
-    { "<leader>s", group = "Search" },
-    { "<leader>q", group = "Quit" },
-    { "<leader>g", group = "Go(to)" },
-    { "<leader>c", group = "Code" },
-    { "<leader>b", group = "Buffers" },
-    { "<leader>h", group = "Help" },
-    { "<leader>w", group = "Windows" },
-    { "<leader>1", hidden = true },
-    { "<leader>2", hidden = true },
-    { "<leader>3", hidden = true },
-    { "<leader>4", hidden = true },
+    { "<leader>f",  group = "Files/Find" },
+    { "<leader>s",  group = "Search" },
+    { "<leader>q",  group = "Quit" },
+    { "<leader>g",  group = "Go(to)" },
+    { "<leader>c",  group = "Code" },
+    { "<leader>b",  group = "Buffers" },
+    { "<leader>e",  group = "Edit Config" },
+    { "<leader>ek", group = "Kitty" },
+    { "<leader>h",  group = "Help" },
+    { "<leader>w",  group = "Windows" },
+    { "<leader>1",  hidden = true },
+    { "<leader>2",  hidden = true },
+    { "<leader>3",  hidden = true },
+    { "<leader>4",  hidden = true },
 })
 
 -- === group: (f)iles ===
 key("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save file" })
 key("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" })
 key("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Grep files" })
+
+-- === group: (c)onfig ===
+-- Kitty
+key("n", "<leader>eks", "<cmd>e ~/.local/share/kitty/sessions/<cr>", { desc = "Edit kitty sessions" })
+key("n", "<leader>ekk", "<cmd>e ~/nixos/modules/home/kitty.nix<cr>", { desc = "Edit kitty config" })
 
 -- === group: (s)earch ===
 key("n", "<leader>st", function() Snacks.picker.todo_comments() end, { desc = "Find all todo's" })
